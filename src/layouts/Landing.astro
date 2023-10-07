@@ -1,0 +1,21 @@
+---
+import { SITE } from "@config";
+import Layout from "./Layout.astro";
+
+export interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={`${frontmatter.title} | ${SITE.title}`}>
+  <main id="main-content">
+    <section id="home" class="prose my-12 max-w-3xl prose-img:border-0">
+      <slot />
+    </section>
+  </main>
+</Layout>
